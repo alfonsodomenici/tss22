@@ -1,0 +1,17 @@
+start
+	soldi = leggi input;
+	contaMano = 1
+	while(soldi > 0)do
+		db = lancio dado;
+		dg = lancio dado;
+		stampa conta mano,db,dg;
+		if(dg > db)then
+			soldi++;
+			stampa mano vinta dal giocatore;
+		else
+			soldi--;
+			stampa mano vinta dal banco;
+		end if 	
+		contaMano++;
+	end while
+end

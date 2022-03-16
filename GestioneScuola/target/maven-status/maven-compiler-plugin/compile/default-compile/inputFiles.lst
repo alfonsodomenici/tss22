@@ -1,0 +1,15 @@
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/Tool.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/entity/Docente.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/services/AnagraficaService.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/services/IscrizioneService.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/Esame.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/services/CorsoService.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/entity/Provincia.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/WinDialogCorso.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/WinGestione.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/entity/VCorsoOk.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/Alunno.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/entity/Corso.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/entity/Anagrafica.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/services/DbManager.java
+/home/tss/Documenti/tss22/GestioneScuola/src/main/java/com/mycompany/gestionescuola/entity/Iscrizione.java

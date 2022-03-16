@@ -1,0 +1,96 @@
+//STAMPA
+
+start
+	numeri[] = leggi input;
+	indice=0;
+	while(indice < lunghezza di numeri)do
+		stampa numeri[indice]
+		indice = indice +1;
+	end while
+end
+
+//RICERCA
+
+start
+	numeri[] = leggi input; array di numeri interi
+
+	n = leggi input; il numero da cercare
+
+	trovato = false;
+	indice=0;
+	while(indice < lunghezza numeri && !trovato)do
+		if(numeri[indice] == n)then
+			trovato=true;
+		end if
+		indice = indice +1;
+	end while
+	return trovato;
+
+end
+
+//MIN
+
+start
+	numeri[] = leggi input; array di numeri interi
+	min=0;
+	indice = 0;
+	while(indice < lunghezza numeri)do
+		if(indice == 0)then
+			min=numeri[indice];
+		else if(numeri[indice]< min)then
+			min = numeri[indice];
+		end if
+		indice = indice +1;
+	end while
+	return min;
+end
+
+//ORDINA BUBBLE SORT
+
+start
+	numeri = leggi input;
+	do
+		ordinato = true;		
+		indice = 0;
+		while(indice < numeri.length -1)do
+			if(numeri[indice] > numeri[indice+1])then
+				tmp = numeri[indice];
+				numeri[indice] = numeri[indice+1];
+				numeri[indice+1] = tmp;
+				ordinato = false;
+			end if
+			indice = indice + 1;
+		end while	
+	while(! ordinato);
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

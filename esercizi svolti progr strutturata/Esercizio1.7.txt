@@ -1,0 +1,34 @@
+start
+
+	x = leggi numero;
+	np = 0;
+	nd = 0;
+	sommap = 0;
+	sommad = 0;
+	mediap = 0;
+	mediad = 0;
+	while(x != 0) do
+		
+		if(x è pari)then
+			np = np +1;
+			sommap = sommap + x;
+			mediap = sommap / np;
+		else
+			nd = nd +1;
+			sommad = sommad + x;
+			mediad = sommad / nd;
+		end if
+		x = leggi numero;
+	end while
+
+	stampa mediap e mediad
+	
+	if(mediap > mediad) then
+		stampa media pari maggiore
+	else if(mediad > mediap) then
+		stampa media dispari maggiore
+	else
+		stampa medie uguali;
+	end if
+	
+end

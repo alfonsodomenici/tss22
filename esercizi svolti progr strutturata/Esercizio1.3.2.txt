@@ -1,0 +1,36 @@
+start
+
+	x = leggi dividendo
+
+	y = leggi divisore
+
+	if ( y == 0) then
+		stampa impossibile calcolare la divisione x 0
+		end
+	end if
+
+	if ( x < 0 || y < 0) then
+		stampa ii numeri devono essere positivi
+		end
+	end if
+
+	quoz = 0;
+
+	resto = 0;
+
+	calcola = x;
+
+
+	while (y <= calcola) do
+
+		quoz = quoz + 1;
+
+		calcola = calcola - y;
+		
+	end while
+
+	resto = calcola;
+
+	stampa quoz e resto
+
+end

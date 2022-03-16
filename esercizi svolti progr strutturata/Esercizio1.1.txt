@@ -1,0 +1,29 @@
+start
+
+	x = leggi numero;
+
+	y = leggi numnero;
+
+	if (x > y) then
+
+		z = x;
+
+		x = y;
+
+		y = z;		
+	end if
+
+	numero = x;
+
+	risultato = 0;
+
+	while ( numero <= y ) do
+
+		risultato = risultato + numero;
+
+		numero = numero +1;		
+			
+	end while
+
+	Stampo risultato;
+end

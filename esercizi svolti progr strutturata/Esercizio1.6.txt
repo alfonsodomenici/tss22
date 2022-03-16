@@ -1,0 +1,33 @@
+start
+
+	x = leggi numero;
+	somma = 0;
+	while(x != 0) do
+		somma = somma + x;
+		x = leggi numero;
+	end while
+	stampa somma;
+end
+
+
+
+start
+
+	x = leggi numero;
+	numeri = int[10];
+	indice = 0;
+	somma = 0;
+	while(x != 0 && indice < 10) do
+		numeri[indice] = x;
+		indice = indice +1;
+		x = leggi numero;
+	end while
+	
+	indice = 0;
+	while (indice < 10) do
+		somma = somma + numeri[indice];
+		indice = indice + 1;
+	end while
+
+	stampa somma;
+end

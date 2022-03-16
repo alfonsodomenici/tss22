@@ -1,0 +1,20 @@
+start
+
+	x = leggi numero;
+
+	y = leggi numero;
+
+	conta = 1;
+
+	risultato = 0;
+
+	while ( conta <= y ) do
+
+		risultato = risultato + x;
+
+		conta = conta +1;		
+			
+	end while
+
+	Stampo risultato;
+end

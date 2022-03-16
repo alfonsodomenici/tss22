@@ -1,0 +1,32 @@
+start
+
+	x = leggi numero input, base;
+	y = leggi numero input, esponente;
+	risultato = 1;
+	if( x non intero || y non intero) then
+		stampa almeno un numero non è intero, impossibile proseguire
+		end
+	end if
+	if(y < 0) then
+		stampa esponente negativo, impossibile proseguire
+		end
+	end if
+	conta=1;
+	while(conta <= y) do
+		risultato = risultato * x;
+		conta = conta +1;
+	end while
+	stampa risultato
+end
+
+2^3
+x=2
+y=3
+risultato=1|2|4|8
+conta=1|2|3|4
+8
+2^0
+x=2
+y=0
+risultato=1
+conta=1

@@ -1,0 +1,34 @@
+Start
+
+	elencoParole[100];
+
+	np = 0;
+
+	parola = leggi input;
+
+	while (parola diversa da fine) do
+
+		elencoParole[np] = parola;
+
+		np = np +1;
+
+		parola = leggi input;
+	
+	end while
+
+	leggi = 0;
+
+	while (leggi < np) do
+		
+		parola = elencoParole[leggi];
+
+		leggi = leggi +1;
+
+		if( parola >= 5 caratteri) then
+	
+			Stampa parola;
+		
+		end if
+		
+	end while
+Fine

@@ -1,0 +1,9 @@
+start
+	numeri = {2,5,4,9,20,29};
+	indice = 0;
+	while(indice < numeri.length) do
+		stampa numeri[indice];
+		indice = indice + 1;
+	end while
+end
+

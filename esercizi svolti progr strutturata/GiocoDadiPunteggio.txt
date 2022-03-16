@@ -1,0 +1,28 @@
+start
+	
+	punteggio = leggi input;
+	
+	p1 = 0;
+	p2 = 0;
+
+	while(p1<punteggio && p2<punteggio)do
+		d1 = lancio dado;
+		d2 = lancio dado;
+		stampa d1,d2
+		if(d1>d2)then
+			p1++;
+			stampa mano vinta da p1
+		else if(d2>d1)then
+			p2++;
+			stampa mano vinta da p2
+		else
+			stampa mano patta
+		end if 		
+	end while
+	if(p1==punteggio)then
+		stampa partita vinta da p1;
+	else
+		stampa partita vinta da p2;
+	end if
+
+end
