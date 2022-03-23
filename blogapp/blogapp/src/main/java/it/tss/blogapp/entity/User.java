@@ -20,22 +20,22 @@ import javax.ws.rs.NotSupportedException;
 @Entity
 @Table(name = "user")
 public class User extends BaseEntity {
-   
+
     @JsonbProperty(value = "first_name")
     @NotBlank
-    @Column(name = "first_name",nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
-    
+
     @JsonbProperty(value = "last_name")
     @NotBlank
-    @Column(name = "last_name",nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
-    
+
     @NotBlank
     @Email
     @Column(nullable = false)
     private String email;
-    
+
     @NotBlank
     @Size(min = 4)
     @Column(nullable = false)
@@ -43,8 +43,7 @@ public class User extends BaseEntity {
 
     /*
     getter setter
-    */
-
+     */
     public String getFirstName() {
         return firstName;
     }
@@ -77,15 +76,9 @@ public class User extends BaseEntity {
         this.pwd = pwd;
     }
 
-
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + '}';
     }
-    
-    public void getError(){
-        throw new UnsupportedOperationException("prova");
-    }
 
-   
 }

@@ -1,1 +1,3 @@
 curl -v -X POST http://localhost:8080/blogapp/resources/users/ -H 'Content-Type:application/json' -d '{"last_name":"bianchi", "first_name":"alex", "email":"bianchi@gmail.com", "pwd":"bianchi"}'
+
+curl -v -X DELETE http://localhost:8080/blogapp/resources/users/10

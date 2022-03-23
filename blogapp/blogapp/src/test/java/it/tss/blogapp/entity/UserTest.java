@@ -99,7 +99,6 @@ public class UserTest {
         constraintViolations = validator.validate(user);
         
         Assertions.assertTrue(constraintViolations.isEmpty());
-        
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> user.getError());
+
     }
 }
