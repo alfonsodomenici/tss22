@@ -4,8 +4,13 @@
  */
 package it.tss.blogapp.entity;
 
+import it.tss.blogapp.adapters.UserTypeAdapter;
+import it.tss.blogapp.boundary.PostsResource;
+import it.tss.blogapp.boundary.UsersResource;
 import java.time.LocalDateTime;
 import java.util.Set;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.json.bind.annotation.JsonbTypeAdapter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -13,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.ws.rs.core.UriBuilder;
 
 /**
  *
@@ -25,6 +31,7 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime created = LocalDateTime.now();
 
+    @JsonbTypeAdapter(UserTypeAdapter.class)
     @ManyToOne(optional = false)
     private User author;
 
@@ -34,22 +41,22 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String body;
 
+    @JsonbTransient
     @ManyToMany
-    @JoinTable(name = "post_tag" , 
+    @JoinTable(name = "post_tag",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private Set<Tag> tags;
 
-    
     /*
     getter setter
-    */
-
+     */
     public LocalDateTime getCreated() {
         return created;
     }
 
+    @JsonbTransient
     public void setCreated(LocalDateTime created) {
         this.created = created;
     }
@@ -86,10 +93,15 @@ public class Post extends BaseEntity {
         this.tags = tags;
     }
 
+    public String getLink() {
+        return UriBuilder.fromResource(PostsResource.class)
+                .path(PostsResource.class, "find")
+                .build(this.id).toString();
+    }
+
     @Override
     public String toString() {
         return "Post{" + "id=" + id + ", created=" + created + ", author=" + author + ", title=" + title + ", body=" + body + ", tags=" + tags + '}';
     }
-    
-    
+
 }

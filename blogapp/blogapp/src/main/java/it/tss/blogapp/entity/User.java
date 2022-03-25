@@ -4,7 +4,12 @@
  */
 package it.tss.blogapp.entity;
 
+import it.tss.blogapp.boundary.UsersResource;
+import java.math.BigDecimal;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -12,6 +17,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.ws.rs.NotSupportedException;
+import javax.ws.rs.core.UriBuilder;
 
 /**
  *
@@ -41,6 +47,16 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String pwd;
 
+    public JsonObject toJsonSlice() {
+
+        return Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("link", UriBuilder.fromResource(UsersResource.class)
+                        .path(UsersResource.class,"find")
+                        .build(this.id).toString())
+                .build();
+    }
+
     /*
     getter setter
      */
@@ -68,6 +84,7 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
+    @JsonbTransient
     public String getPwd() {
         return pwd;
     }
@@ -75,6 +92,8 @@ public class User extends BaseEntity {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
+
+    
 
     @Override
     public String toString() {

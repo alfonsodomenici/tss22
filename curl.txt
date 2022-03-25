@@ -1,3 +1,5 @@
-curl -v -X POST http://localhost:8080/blogapp/resources/users/ -H 'Content-Type:application/json' -d '{"last_name":"bianchi", "first_name":"alex", "email":"bianchi@gmail.com", "pwd":"bianchi"}'
+curl -v -X POST http://localhost:8080/blogapp/resources/users/ -H 'Content-Type:application/json' -d '{ "last_name":"bianchi", "first_name":"alex", "email":"bianchi@gmail.com", "pwd":"bianchi"}'
 
 curl -v -X DELETE http://localhost:8080/blogapp/resources/users/10
+
+curl -v -X POST http://localhost:8080/blogapp/resources/users/2/posts -H 'Content-Type:application/json' -d '{"author":{"id":1},"title":"secondo post", "body":"testo di prova autore 1"}'
