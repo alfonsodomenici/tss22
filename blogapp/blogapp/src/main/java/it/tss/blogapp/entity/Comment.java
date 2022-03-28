@@ -4,6 +4,9 @@
  */
 package it.tss.blogapp.entity;
 
+import it.tss.blogapp.adapters.UserTypeAdapter;
+import it.tss.blogapp.adapters.PostTypeAdapter;
+import javax.json.bind.annotation.JsonbTypeAdapter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -17,12 +20,14 @@ import javax.persistence.Table;
 @Table(name = "comment")
 public class Comment extends BaseEntity{
 
+    @JsonbTypeAdapter(UserTypeAdapter.class)
     @ManyToOne(optional = false)
     private User author;
 
     @Column(nullable = false)
     private String msg;
 
+    @JsonbTypeAdapter(PostTypeAdapter.class)
     @ManyToOne(optional = false)
     private Post post;
     

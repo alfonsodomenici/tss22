@@ -7,8 +7,11 @@ package it.tss.blogapp.entity;
 import it.tss.blogapp.adapters.UserTypeAdapter;
 import it.tss.blogapp.boundary.PostsResource;
 import it.tss.blogapp.boundary.UsersResource;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.json.bind.annotation.JsonbTypeAdapter;
 import javax.persistence.Column;
@@ -48,6 +51,13 @@ public class Post extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private Set<Tag> tags;
+
+    public JsonObject toJsonSlice() {
+        return Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("title", this.title)
+                .build();
+    }
 
     /*
     getter setter

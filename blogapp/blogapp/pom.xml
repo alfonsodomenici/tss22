@@ -29,6 +29,13 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>2.5.2</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.microprofile-ext.openapi-ext</groupId>
+            <artifactId>openapi-ui</artifactId>
+            <version>1.1.5</version>
+        </dependency>
+
         <!-- dipendenze per i test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

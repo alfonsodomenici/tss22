@@ -6,6 +6,7 @@ package it.tss.blogapp.control;
 
 import it.tss.blogapp.entity.Post;
 import java.util.List;
+import java.util.Optional;
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,6 +26,11 @@ public class PostStore {
     public List<Post> all() {
         return em.createQuery("select e from Post e order by e.created DESC", Post.class)
                 .getResultList();
+    }
+
+    public Optional<Post> find(Long id) {
+        Post found = em.find(Post.class, id);
+        return found == null ? Optional.empty() : Optional.of(found);
     }
 
     public List<Post> byUser(Long userId) {

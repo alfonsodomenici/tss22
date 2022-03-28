@@ -24,7 +24,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author tss
  */
-@Path("/posts")
+@Path("/comments")
 public class CommentsResource {
 
     @GET

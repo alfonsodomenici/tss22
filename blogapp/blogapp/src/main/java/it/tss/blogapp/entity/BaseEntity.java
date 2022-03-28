@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -23,8 +24,9 @@ public abstract class BaseEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
     
+    @NotNull
     @Version
-    protected Long version;
+    protected Long version = 0l;
     /*
     getter setter
     */

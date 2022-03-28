@@ -4,11 +4,14 @@
  */
 package it.tss.blogapp.boundary;
 
+import it.tss.blogapp.control.CommentStore;
+import it.tss.blogapp.control.PostStore;
 import it.tss.blogapp.entity.Comment;
 import it.tss.blogapp.entity.Post;
 import it.tss.blogapp.entity.Tag;
 import it.tss.blogapp.entity.User;
 import java.util.List;
+import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -28,17 +31,24 @@ import javax.ws.rs.core.MediaType;
 @Path("/posts")
 public class PostsResource {
 
+    @Inject
+    PostStore store;
+    
+    @Inject
+    CommentStore commentStore;
+        
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Post> all() {
-        throw new UnsupportedOperationException();
+        return store.all();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Post find(@PathParam("id") Long id) {
-        throw new UnsupportedOperationException();
+        return store.find(id).orElseThrow(() -> new NotFoundException());
     }
 
     @PUT
@@ -59,15 +69,15 @@ public class PostsResource {
     @GET
     @Path("{id}/comments")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Comment> comments() {
-        throw new UnsupportedOperationException();
+    public List<Comment> comments(@PathParam("id") Long id) {
+        return commentStore.byPost(id);
     }
 
     @POST
     @Path("{id}/comments")
     @Consumes(MediaType.APPLICATION_JSON)
     public void createComment(@PathParam("id") Long id, @Valid Comment entity) {
-        throw new UnsupportedOperationException();
+        commentStore.save(entity);
     }
 
     @GET
