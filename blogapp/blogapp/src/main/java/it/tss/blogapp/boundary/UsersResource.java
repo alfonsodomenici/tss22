@@ -32,12 +32,17 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 /**
  *
  * @author tss
  */
 @Path("/users")
+@Tag(name = "gestione utenti", description = "permette di gestire gli utenti di blogapp")
 public class UsersResource {
 
     @Inject
@@ -54,6 +59,10 @@ public class UsersResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(description = "Restituisce l'elenco di tutti gli utenti")
+    @APIResponses({
+        @APIResponse(responseCode = "200", description = "Elenco ritornato con successo")
+    })
     public List<User> all() {
         return store.all();
     }

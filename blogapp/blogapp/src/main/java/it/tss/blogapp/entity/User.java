@@ -39,7 +39,7 @@ public class User extends BaseEntity {
 
     @NotBlank
     @Email
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @NotBlank

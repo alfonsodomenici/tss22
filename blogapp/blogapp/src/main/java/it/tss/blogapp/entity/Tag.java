@@ -16,8 +16,15 @@ import javax.persistence.Table;
 @Table(name = "tag")
 public class Tag extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
+
+    public Tag() {
+    }
+
+    public Tag(String name) {
+        this.name = name;
+    }
 
     /*
     getter setter

@@ -10,6 +10,7 @@ import it.tss.blogapp.boundary.UsersResource;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.TreeSet;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.bind.annotation.JsonbTransient;
@@ -50,7 +51,7 @@ public class Post extends BaseEntity {
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private Set<Tag> tags;
+    private Set<Tag> tags = new TreeSet<>();
 
     public JsonObject toJsonSlice() {
         return Json.createObjectBuilder()
