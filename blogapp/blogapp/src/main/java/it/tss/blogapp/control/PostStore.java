@@ -55,4 +55,13 @@ public class PostStore {
         save(toupdate);
     }
 
+    public void removeTag(Long id, String tag) {
+        final Post toupdate = find(id).get();
+        Optional<Tag> found = tagStore.byName(tag);
+        if (found.isPresent()) {
+            toupdate.getTags().remove(found.get());
+            save(toupdate);
+        }
+    }
+
 }

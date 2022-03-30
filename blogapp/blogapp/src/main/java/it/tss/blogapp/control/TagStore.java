@@ -27,12 +27,21 @@ public class TagStore {
     @PersistenceContext
     EntityManager em;
 
+    public List<Tag> all() {
+        return em.createQuery("select e from Tag e order by e.name")
+                .getResultList();
+    }
+
     public Tag save(Tag entity) {
         return em.merge(entity);
     }
 
     public Tag saveIfNotExists(String tag) {
-        return byName(tag).orElse(this.save(new Tag(tag)));
+        Optional<Tag> found = byName(tag);
+        if (found.isPresent()) {
+            return found.get();
+        }
+        return this.save(new Tag(tag));
     }
 
     public Optional<Tag> find(Long id) {

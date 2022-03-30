@@ -105,6 +105,6 @@ public class PostsResource {
     @Path("{id}/tags")
     @Consumes(MediaType.TEXT_PLAIN)
     public void removeTag(@PathParam("id") Long id, String tag) {
-        throw new UnsupportedOperationException();
+        store.removeTag(id,tag);
     }
 }
