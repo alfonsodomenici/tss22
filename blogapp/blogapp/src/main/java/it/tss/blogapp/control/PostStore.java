@@ -28,6 +28,9 @@ public class PostStore {
     @Inject
     TagStore tagStore;
 
+    @Inject
+    CommentStore commentStore;
+    
     public List<Post> all() {
         return em.createQuery("select e from Post e order by e.created DESC", Post.class)
                 .getResultList();
@@ -62,6 +65,15 @@ public class PostStore {
             toupdate.getTags().remove(found.get());
             save(toupdate);
         }
+    }
+
+    public void deleteByUser(Long id) {
+        byUser(id).stream().map(Post::getId).forEach(this::delete);
+    }
+    
+    public void delete(Long id){
+        commentStore.deleteByPost(id);
+        em.remove(em.getReference(Post.class, id));
     }
 
 }

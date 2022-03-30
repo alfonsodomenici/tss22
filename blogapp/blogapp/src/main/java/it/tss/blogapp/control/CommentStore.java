@@ -42,4 +42,8 @@ public class CommentStore {
         Comment found = find(id).orElseThrow(() -> new NotFoundException());
         em.remove(found);
     }
+
+    public void deleteByPost(Long id) {
+        byPost(id).stream().map(Comment::getId).forEach(this::delete);
+    }
 }

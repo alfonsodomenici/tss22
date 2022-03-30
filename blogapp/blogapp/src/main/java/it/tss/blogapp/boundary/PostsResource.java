@@ -33,6 +33,9 @@ import javax.ws.rs.core.MediaType;
  * @author tss
  */
 @Path("/posts")
+@org.eclipse.microprofile.openapi.annotations.tags.Tag(
+        name = "Gestione Posts", description = "Permetti ad ogni utente di gestire i propri post"
+)
 public class PostsResource {
 
     @Inject
@@ -62,7 +65,7 @@ public class PostsResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Post update(@PathParam("id") Long id, @Valid Post entity) {
-        throw new UnsupportedOperationException();
+        return store.save(entity);
     }
 
     @DELETE

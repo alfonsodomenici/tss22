@@ -20,6 +20,9 @@ import javax.ws.rs.core.MediaType;
  * @author tss
  */
 @Path("/tags")
+@org.eclipse.microprofile.openapi.annotations.tags.Tag(
+        name = "Gestione Tags", description = "Permetti visualizzare le risorse Tag presenti"
+)
 public class TagsResources {
     
     @Inject
