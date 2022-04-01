@@ -4,6 +4,7 @@
  */
 package it.tss.blogapp.control;
 
+import it.tss.blogapp.SecurityEncoding;
 import it.tss.blogapp.entity.User;
 import java.util.List;
 import java.util.Optional;
@@ -29,11 +30,23 @@ public class UserStore {
     @Inject
     PostStore postStore;
 
+    /**
+     * restituisce tutti gli utenti presenti nel database
+     * 
+     * @return lista oggetti User
+     */
     public List<User> all() {
         return em.createQuery("select e from User e order by e.lastName", User.class)
                 .getResultList();
     }
 
+    /**
+     * restituisce tutti gli utenti presenti nel database in modo paginato
+     * 
+     * @param page numero di pagina
+     * @param size dimensioni pagina
+     * @return lista oggetti User
+     */
     public List<User> allPaginated(int page, int size) {
         return em.createQuery("select e from User e order by e.lastName", User.class)
                 .setFirstResult((page - 1) * size)
@@ -46,6 +59,11 @@ public class UserStore {
         return found == null ? Optional.empty() : Optional.of(found);
     }
 
+    public User create(User entity){
+        entity.setPwd(SecurityEncoding.shaHash(entity.getPwd()));
+        return save(entity);
+    }
+    
     public User save(User entity) {
         User saved = em.merge(entity);
         return saved;

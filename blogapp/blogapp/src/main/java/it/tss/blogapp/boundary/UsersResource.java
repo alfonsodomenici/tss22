@@ -91,7 +91,7 @@ public class UsersResource {
     })
     
     public Response create(@Valid User entity) {
-        User saved = store.save(entity);
+        User saved = store.create(entity);
         return Response.status(Response.Status.CREATED)
                 .entity(saved)
                 .build();
@@ -100,11 +100,14 @@ public class UsersResource {
     @PUT
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @Operation(description = "Aggiorna i dati dell'utente")
     @APIResponses({
         @APIResponse(responseCode = "200", description = "Nuovo utente creato con successo")
     })
     public User update(@PathParam("id") Long id, @Valid User entity) {
+        User found = store.find(id).orElseThrow(() -> new NotFoundException("user non trovato. id=" + id));
+        entity.setId(id);
         return store.save(entity);
     }
 

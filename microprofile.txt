@@ -1,0 +1,3 @@
+<extension module="org.wildfly.extension.microprofile.openapi-smallrye"/>
+
+<subsystem xmlns="urn:wildfly:microprofile-openapi-smallrye:1.0"/>

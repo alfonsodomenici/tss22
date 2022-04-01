@@ -93,7 +93,6 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    @JsonbTransient
     public String getPwd() {
         return pwd;
     }
