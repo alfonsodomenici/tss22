@@ -11,6 +11,7 @@ import javax.ws.rs.core.Response;
 public interface PingResourceClient {
 
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     Response ping();
-    
+
 }
