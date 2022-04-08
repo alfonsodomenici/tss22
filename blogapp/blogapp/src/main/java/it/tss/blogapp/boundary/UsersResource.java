@@ -136,13 +136,13 @@ public class UsersResource {
     @Path("{id}")
     @RolesAllowed("users")
     public UserResource find(@PathParam("id") Long id) {
-        if(Long.parseLong(token.getSubject()) != id){
+        if (Long.parseLong(token.getSubject()) != id) {
+            System.out.println("id utente non corrispondente");
             throw new ForbiddenException();
         }
         UserResource sub = rc.getResource(UserResource.class);
         sub.setId(id);
         return sub;
     }
-
 
 }

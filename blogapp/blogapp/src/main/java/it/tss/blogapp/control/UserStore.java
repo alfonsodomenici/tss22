@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -22,6 +23,7 @@ import javax.transaction.Transactional;
  *
  * @author tss
  */
+@Named("userstore")
 @RequestScoped
 @Transactional(Transactional.TxType.REQUIRED)
 public class UserStore {
