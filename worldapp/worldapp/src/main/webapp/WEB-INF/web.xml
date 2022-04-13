@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    
+    <data-source>
+        <name>java:global/jdbc/worldapp</name>
+        <class-name>org.mariadb.jdbc.MariaDbDataSource</class-name>
+        <url>jdbc:mariadb://localhost:3307/world</url>
+        <user>worldapp</user>
+        <password>worldapp</password>
+    </data-source>
+    
+    <context-param>
+        <param-name>resteasy.role.based.security</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+</web-app>
