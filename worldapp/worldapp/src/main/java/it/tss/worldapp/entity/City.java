@@ -120,6 +120,12 @@ public class City implements Serializable{
         final City other = (City) obj;
         return Objects.equals(this.id, other.id);
     }
+
+    @Override
+    public String toString() {
+        return "City{" + "id=" + id + ", name=" + name + ", district=" + district + ", population=" + population + ", country=" + country + '}';
+    }
+    
     
     
 }

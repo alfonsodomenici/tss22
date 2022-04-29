@@ -55,9 +55,10 @@ public class CitiesResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(@Valid City entity){
-        var saved = em.merge(entity);
+        System.out.println("nuova città: " + entity);
+        //var saved = em.merge(entity);
         return Response.status(Response.Status.CREATED)
-                .entity(saved)
+                .entity(entity)
                 .build();
     }
     

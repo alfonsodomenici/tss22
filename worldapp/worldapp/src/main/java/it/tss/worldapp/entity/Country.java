@@ -223,4 +223,10 @@ public class Country implements Serializable {
         return Objects.equals(this.code, other.code);
     }
 
+    @Override
+    public String toString() {
+        return "Country{" + "code=" + code + ", name=" + name + ", continent=" + continent + ", region=" + region + ", surfaceArea=" + surfaceArea + ", indepYear=" + indepYear + ", population=" + population + ", lifeExpectancy=" + lifeExpectancy + ", gnp=" + gnp + ", gNPOld=" + gNPOld + ", localName=" + localName + ", governmentForm=" + governmentForm + ", headOfState=" + headOfState + ", capital=" + capital + ", code2=" + code2 + '}';
+    }
+
+    
 }
