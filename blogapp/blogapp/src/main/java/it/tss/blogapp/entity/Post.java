@@ -4,6 +4,7 @@
  */
 package it.tss.blogapp.entity;
 
+import it.tss.blogapp.adapters.TagSetTypeAdapter;
 import it.tss.blogapp.adapters.UserTypeAdapter;
 import it.tss.blogapp.boundary.PostsResource;
 import it.tss.blogapp.boundary.UsersResource;
@@ -17,6 +18,7 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.json.bind.annotation.JsonbTypeAdapter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -45,8 +47,8 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String body;
 
-    @JsonbTransient
-    @ManyToMany
+    @JsonbTypeAdapter(TagSetTypeAdapter.class)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "post_tag",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")

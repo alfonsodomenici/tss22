@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tag")
-public class Tag extends BaseEntity {
+public class Tag extends BaseEntity implements Comparable<Tag>{
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -40,6 +40,11 @@ public class Tag extends BaseEntity {
     @Override
     public String toString() {
         return "Tag{" + "id=" + id + ", name=" + name + '}';
+    }
+
+    @Override
+    public int compareTo(Tag arg0) {
+        return this.name.compareTo(arg0.getName());
     }
 
 }
